@@ -313,6 +313,10 @@ def launch_setup(context, *args, **kwargs):
             plugin='stereolabs::ZedCamera',
             name=node_name_val,
             parameters=node_parameters,
+            remappings=[
+                ('/base/camera/rgb/color/rect/image', '/base/image_raw'),
+                ('/base/camera/rgb/color/rect/image/camera_info', '/base/camera_info'),
+            ],
             extra_arguments=[{'use_intra_process_comms': enable_ipc}]
         )
     else: # 'zedxonegs','zedxone4k','zedxonehdr')
@@ -322,6 +326,10 @@ def launch_setup(context, *args, **kwargs):
             plugin='stereolabs::ZedCameraOne',
             name=node_name_val,
             parameters=node_parameters,
+            remappings=[
+                ('/base/camera/rgb/color/rect/image', '/base/image_raw'),
+                ('/base/camera/rgb/color/rect/image/camera_info', '/base/camera_info'),
+            ],
             extra_arguments=[{'use_intra_process_comms': enable_ipc}]
         )
     
